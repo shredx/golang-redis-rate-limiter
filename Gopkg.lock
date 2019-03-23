@@ -61,13 +61,7 @@
   branch = "master"
   digest = "1:f79af6373976dd76c9bf3d5de0043d5f98158c125217424fe6b77ed5ac83afd6"
   name = "github.com/revel/modules"
-  packages = [
-    ".",
-    "static/app/controllers",
-    "static/app/model",
-    "testrunner/app",
-    "testrunner/app/controllers",
-  ]
+  packages = ["."]
   pruneopts = ""
   revision = "a50f5f138880b68aef235a7c1f3f09ba56b71d45"
 
@@ -156,9 +150,6 @@
   input-imports = [
     "github.com/go-redis/redis",
     "github.com/revel/modules",
-    "github.com/revel/modules/static/app/controllers",
-    "github.com/revel/modules/testrunner/app",
-    "github.com/revel/modules/testrunner/app/controllers",
     "github.com/revel/revel",
     "github.com/revel/revel/testing",
   ]
