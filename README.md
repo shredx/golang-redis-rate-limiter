@@ -5,9 +5,9 @@ A high-productivity web framework for the [Go language](http://www.golang.org/).
 
 ### Start the web server:
 
-   revel run myapp
+   revel run github.com/shredx/golang-redis-rate-limiter
 
-### Go to http://localhost:9000/ and you'll see:
+### Go to http://localhost:8085/ and you'll see:
 
     "It works"
 
