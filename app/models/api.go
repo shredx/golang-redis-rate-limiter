@@ -6,20 +6,20 @@ import "github.com/go-redis/redis"
  * This file contains the models defintions for api usage
  */
 
-//UsageChannel recieves the redis api usage channel
+//UsageChannel receives the redis api usage channel
 var UsageChannel <-chan *redis.Message
 
-//ResetChannel recieves the redis api usage reset channel
+//ResetChannel receives the redis api usage reset channel
 var ResetChannel <-chan *redis.Message
 
-//RateChannel recieves the rate updation requests
-var RateChannel chan RateRequest = make(chan RateRequest)
+//RateChannel receives the rate updation requests
+var RateChannel = make(chan RateRequest)
 
 //BlockChannel is the name of the channel that should be used for blocking the api subscription key
 var BlockChannel string
 
-//Apiusage represents the api usage of the key
-type ApiUsage struct {
+//APIUsage represents the api usage of the key
+type APIUsage struct {
 	Key          string `json:"key"`     //Key is the key associated with the api usage
 	MaxUsage     int    `json:"usage"`   //MaxUsage is the maximum allowed usage
 	CurrentUsage int    `json:"current"` //CurrentUsage is the current usage

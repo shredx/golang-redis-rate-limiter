@@ -58,10 +58,12 @@ func Usage(ch <-chan *redis.Message, desc string, t models.Type) {
 	for {
 		m := <-ch
 		revel.AppLog.Info(desc, m.Payload)
-		models.RateChannel <- models.RateRequest{m.Payload, t}
+		models.RateChannel <- models.RateRequest{KeyHash: m.Payload, Type: t}
 	}
 }
 
+//RateProcess process the rate update requests. If the rate exceeds the max limit, it will
+// send message to block the api token. For reset type requests it resets the api current usage to 0
 func RateProcess(ch chan models.RateRequest) {
 	/*
 	 * We will init a infinte for loop waiting for the requests to arrive
@@ -82,7 +84,7 @@ func RateProcess(ch chan models.RateRequest) {
 		}
 
 		//parising the current api usage
-		var curr models.ApiUsage
+		var curr models.APIUsage
 		dec := json.NewDecoder(strings.NewReader(val))
 		err = dec.Decode(&curr)
 		if err != nil {

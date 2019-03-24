@@ -1,43 +1,38 @@
-# Welcome to Revel
+# Golang Redis Rate Limiter [![Go Report Card](https://goreportcard.com/badge/github.com/shredx/golang-redis-rate-limiter)](https://goreportcard.com/report/github.com/shredx/golang-redis-rate-limiter)
 
-A high-productivity web framework for the [Go language](http://www.golang.org/).
-
-
-### Start the web server:
-
-   revel run github.com/shredx/golang-redis-rate-limiter
-
-### Go to http://localhost:8085/ and you'll see:
-
-    "It works"
-
-## Code Layout
-
-The directory structure of a generated Revel application:
-
-    conf/             Configuration directory
-        app.conf      Main app configuration file
-        routes        Routes definition file
-
-    app/              App sources
-        init.go       Interceptor registration
-        controllers/  App controllers go here
-        views/        Templates directory
-
-    messages/         Message files
-
-    public/           Public static assets
-        css/          CSS files
-        js/           Javascript files
-        images/       Image files
-
-    tests/            Test suites
+It's API limiter built in Go while we were trying out Redis.
+It has got dependency on a node app that mock like the API to be limited [node-redis-rate-limiter](https://github.com/shredx/node-redis-rate-limiter)
+and [API gateway](https://github.com/shredx/golang-api-gateway).
 
 
-## Help
+## Getting Started
 
-* The [Getting Started with Revel](http://revel.github.io/tutorial/gettingstarted.html).
-* The [Revel guides](http://revel.github.io/manual/index.html).
-* The [Revel sample apps](http://revel.github.io/examples/index.html).
-* The [API documentation](https://godoc.org/github.com/revel/revel).
+### Prerequisite
+#### Local Setup
+* [Go](https://golang.org/doc/install) -- Development environment
+* [dep](https://golang.github.io/dep/docs/installation.html) -- Dependency management
+* [Revel](https://revel.github.io/tutorial/index.html) -- Golang web framework
+* [Redis](https://redis.io/download) -- Cache storage
 
+#### Docker
+* [Docker](https://www.docker.com/products/docker-desktop)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Installation
+#### Local Setup
+```sh
+go get -u github.com/shredx/golang-redis-rate-limiter
+cd $GOPATH/github.com/shredx/golang-redis-rate-limiter
+dep ensure
+```
+#### Docker
+```sh
+git clone https://github.com/shredx/golang-redis-rate-limiter
+cd golang-redis-rate-limiter
+docker-compose up
+```
+
+## Architecture
+The architecture might not be perfect as it was just a weekend project to explore Redis.
+
+![Architecture](.github/architecture.png)
