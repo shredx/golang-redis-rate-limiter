@@ -34,6 +34,12 @@ const (
 	ADD Type = iota
 	//RESET will reset the the current api usage to 0
 	RESET
+	//BLOCK request is to block the api token
+	BLOCK
+	//STATUS request is to know the status of a token
+	STATUS
+	//OK request indicates that the status of the token is ok and not blacklisted
+	OK
 )
 
 //RateRequest is the request to update the rate
