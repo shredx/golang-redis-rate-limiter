@@ -24,12 +24,13 @@ func InitUsageSubscriber() {
 	 * Will init the rate process go routine
 	 */
 	//init he subscriber for usage channel
-	sub := models.DB.Subscribe(revel.Config.StringDefault("redis.usagechannel", "apiusage"))
+	sub := models.DB.Subscribe(revel.Config.StringDefault("redis.usagechannel", "API_USAGE"))
 	sub.Receive()
 	models.UsageChannel = sub.Channel()
 
 	//initing the reste channel and storing it
-	subR := models.DB.Subscribe(revel.Config.StringDefault("redis.resetchannel", "resetusage"))
+	subR := models.DB.Subscribe(revel.Config.StringDefault("redis.resetchannel", "RESET"))
+	models.ResetChannelName = revel.Config.StringDefault("redis.resetchannel", "RESET")
 	subR.Receive()
 	models.ResetChannel = subR.Channel()
 

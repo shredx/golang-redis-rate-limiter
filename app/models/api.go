@@ -12,6 +12,9 @@ var UsageChannel <-chan *redis.Message
 //ResetChannel receives the redis api usage reset channel
 var ResetChannel <-chan *redis.Message
 
+//ResetChannelName is the name of the reset channel
+var ResetChannelName string
+
 //RateChannel receives the rate updation requests
 var RateChannel = make(chan RateRequest)
 
