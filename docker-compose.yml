@@ -8,8 +8,8 @@ services:
     networks:
       - redis-net
     volumes:
-      - $PWD/app:$GOPATH/src/github.com/shredx/golang-redis-rate-limiter/app
-      - $PWD/conf:$GOPATH/src/github.com/shredx/golang-redis-rate-limiter/conf
+      - $PWD/app:/go/src/github.com/shredx/golang-redis-rate-limiter/app
+      - $PWD/conf:/go/src/github.com/shredx/golang-redis-rate-limiter/conf
 
   redis:
     container_name: redis
